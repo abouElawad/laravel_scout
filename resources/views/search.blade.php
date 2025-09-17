@@ -14,9 +14,16 @@
 						<x-text-input id="query" type="text" class="block mt-1 w-full" name="query" placeholder='search'
 							value="{{ request('query') }}" />
 
+               <select name="replica" class="black mt-1 w-full">
+                <option value="" > -- </option>
+              <option value="posts_views_asc" @selected($request->replica == "posts_views_asc" )>Views (lowest first)</option>
+              <option value="posts_views_desc" @selected($request->replica == "posts_views_desc" )>Views (highest first)</option>
+            </select>
+
 						<x-primary-button class="mt-3">
 							Search
 						</x-primary-button>
+
 					</form>
 
            @if (isset($results))
@@ -25,7 +32,10 @@
               <div>
                @foreach ($results as $result)
                <div class="mt-3 bg-gray-100 p-2">
-                <h4 class="text-blue-500" >{{ $result->title }}</h4>
+                <h4 class="text-blue-500" >
+                  {{ $result->title }}
+                   <em class="inline-block text-gray-500" >({{ $result->views }}) Views</em>
+                </h4>
                 <p class="text-gray-700">{{ $result->body }}</p>
                </div>
                @endforeach
