@@ -7,7 +7,7 @@ use App\Http\Controllers\ProfileController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/search', [SearchController::class, 'search'])->name('search');
+Route::get('/search', [SearchController::class, 'search'])->name('search')->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

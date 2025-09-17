@@ -18,7 +18,30 @@
 							Search
 						</x-primary-button>
 					</form>
+
+           @if (isset($results))
+          <div class="mt-3">
+            @if (count($results)>0)
+              <div>
+               @foreach ($results as $result)
+               <div class="mt-3 bg-gray-100 p-2">
+                <h4 class="text-blue-500" >{{ $result->title }}</h4>
+                <p class="text-gray-700">{{ $result->body }}</p>
+               </div>
+               @endforeach
+               <div class="mt-4">
+                 {{ $results->appends($request->query())->links() }}
+               </div>
+              </div>
+            @else
+              no results are found
+            @endif
+          </div>
+        @endif
 				</div>
+
+       
+
 			</div>
 		</div>
 	</div>

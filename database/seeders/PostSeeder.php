@@ -14,14 +14,15 @@ class PostSeeder extends Seeder
      */
     public function run(): void
     {
-        $posts= File::get(database_path('dummy_data.json'));
-
-        foreach(json_decode($posts) as $post)
+        $file= File::get(database_path('dummy_data.json'));
+        $posts = json_decode($file);
+        foreach($posts as $post)
         {
           Post::create([
             'title'=> $post->title,
             'body'=> $post->body,
             'category'=> $post->category,
+            'views'=> random_int(0,20000000),
           ]);
         }
     }
