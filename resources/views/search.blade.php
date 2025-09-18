@@ -14,10 +14,19 @@
 						<x-text-input id="query" type="text" class="block mt-1 w-full" name="query" placeholder='search'
 							value="{{ request('query') }}" />
 
+              {{-- replica selection --}}
                <select name="replica" class="black mt-1 w-full">
                 <option value="" > -- </option>
               <option value="posts_views_asc" @selected($request->replica == "posts_views_asc" )>Views (lowest first)</option>
               <option value="posts_views_desc" @selected($request->replica == "posts_views_desc" )>Views (highest first)</option>
+            </select>
+
+              {{-- facets --}}
+               <select name="facets" class="black mt-1 w-full">
+                <option value="" > -- </option>
+              <option value="laravel" @selected($request->facets == "laravel" )>laravel</option>
+              <option value="javascript" @selected($request->facets == "javascript" )>javascript</option>
+              <option value="devops" @selected($request->facets == "devops" )>devops</option>
             </select>
 
 						<x-primary-button class="mt-3">
