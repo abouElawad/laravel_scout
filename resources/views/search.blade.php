@@ -34,7 +34,7 @@
                <div class="mt-3 bg-gray-100 p-2">
                 <h4 class="text-blue-500" >
                   {{ $result->title }}
-                   <em class="inline-block text-gray-500" >({{ $result->views }}) Views</em>
+                   <em class="inline-block text-red-500" >({{ $result->views }}) Views</em>
                 </h4>
                 <p class="text-gray-700">{{ $result->body }}</p>
                </div>
