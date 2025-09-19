@@ -17,8 +17,11 @@
               {{-- replica selection --}}
                <select name="replica" class="black mt-1 w-full">
                 <option value="" > -- </option>
+                
               <option value="posts_views_asc" @selected($request->replica == "posts_views_asc" )>Views (lowest first)</option>
               <option value="posts_views_desc" @selected($request->replica == "posts_views_desc" )>Views (highest first)</option>
+              <option value="articles_posts_views_asc" @selected($request->replica == "articles_posts_views_asc" )>Views with article (lowest first)</option>
+              <option value="articles_posts_views_desc" @selected($request->replica == "articles_posts_views_desc" )>Views with article (highest first)</option>
             </select>
 
               {{-- facets --}}
