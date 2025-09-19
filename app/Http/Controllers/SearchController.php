@@ -19,7 +19,7 @@ class SearchController extends Controller
 
     if (isset($query)) {
 
-      $builder = Post::search($query);
+      $builder = Post::search($query)->within('articles_posts_aggregator');
 
 
       if (isset($replica)) {
